@@ -7,6 +7,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Address;
+use App\Models\Category;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,14 +23,18 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
-
-        //$this->call(UserSeeder::class);
-
-
+        
+        /*
         User::factory(10)->has(
             Address::factory()->count(1)
-        )->create();   
+        )->create(); 
+        */  
+
+
+        $this->call([
+            UserSeeder::class, 
+            CategorySeeder::class
+        ]);
 
     }
 }
