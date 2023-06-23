@@ -1,0 +1,6 @@
+
+{{ $product->name }}
+<br>
+{{ $product->description }}
+<br>
+{{ $product->price }}

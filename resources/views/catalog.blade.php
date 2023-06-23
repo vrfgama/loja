@@ -7,7 +7,7 @@
     <br><br>
     
     @foreach($list as $list)
-        {{$list->p_name}} <a href="http://">Detalhes</a>
+        {{$list->p_name}} <a href="{{ route('product', $list->p_id) }}">Detalhes</a>
         <br>
     @endforeach
     
