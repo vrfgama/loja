@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class CategoryController extends Controller
@@ -13,16 +12,17 @@ class CategoryController extends Controller
     
     public function listCategoriesAndProducts()
     {
+                
+        $select= DB::table('categories as c')
+                    ->select('c.id as c_id', 'c.name as c_name', 'p.id as p_id', 'p.name as p_name', 'p.ean as p_ean', 'p.description as p_description', 'p.price as p_price', 'p.stock as p_stock')
+                    ->join('products as p', 'p.category_id', '=', 'c.id')
+                    ->get();
 
-        $categories= Category::all();
-        $list= array();
-
-        foreach($categories as $categories){
-            $products= Product::where('category_id', $categories->id)->limit(5)->get();
-            $list[$categories->name] = $products;
-        }                
+        $list = $select->groupBy('c_name');
+        
 
         return view('catalog', ['list'=>$list]);
-
     }
+
+
 }
