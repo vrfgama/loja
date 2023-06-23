@@ -23,4 +23,4 @@ Route::get('/index', function(){
 
 Route::get('/list_catalog', [CategoryController::class, 'listCategoriesAndProducts'])->name('list.catalog');
 
-Route::get('/category', [CategoryFactory::class, 'category'])->name('category');
+Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');

@@ -1,7 +1,7 @@
 
 @foreach( $list as $key => $list )
 
-    {{$key}}  <a href="http://">Ver mais</a>
+    {{$key}}  <a href="{{ route('category', $list->first()->c_id) }}">Ver mais</a>
     <br>
     {{ $list->first()->c_id }}
     <br><br>
