@@ -8,6 +8,7 @@
     
     @foreach($list as $list)
         {{$list->p_name}} <a href="{{ route('product', $list->p_id) }}">Detalhes</a>
+        <a href="{{ route('cart.add', $list->p_id) }}">Adicionar ao carrinho</a>
         <br>
     @endforeach
     
