@@ -9,6 +9,7 @@
     {{ $products->description }}
     <br>
     {{ $products->price }}
+    <br>
+    <a href="{{ route('cart.add', $products->id) }}">Adicionar ao carrinho</a>
     <br><br>
-
 @endforeach
