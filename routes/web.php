@@ -29,3 +29,5 @@ Route::get('/category/{id}', [CategoryController::class, 'category'])->name('cat
 Route::get('/product/{id}', [ProductController::class, 'product'])->name('product');
 
 Route::get('/cart_add/{id}', [CartItemController::class, 'cartAdd'])->name('cart.add');
+
+Route::get('/cart', [CartItemController::class, 'list'])->name('list_cart');
