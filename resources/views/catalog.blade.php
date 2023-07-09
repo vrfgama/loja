@@ -1,5 +1,5 @@
 
-<a href="{{ route('list_cart') }}">Meu carrinho</a>
+<a href="{{ route('list.cart') }}">Meu carrinho</a>
 <br><br>
 
 @foreach( $list as $key => $list )

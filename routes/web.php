@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +24,11 @@ Route::get('/index', function(){
 
 
 Route::get('/list_catalog', [CategoryController::class, 'listCategoriesAndProducts'])->name('list.catalog');
-
 Route::get('/category/{id}', [CategoryController::class, 'category'])->name('category');
 
 Route::get('/product/{id}', [ProductController::class, 'product'])->name('product');
 
 Route::get('/cart_add/{id}', [CartItemController::class, 'cartAdd'])->name('cart.add');
+Route::get('/cart', [CartItemController::class, 'list'])->name('list.cart');
 
-Route::get('/cart', [CartItemController::class, 'list'])->name('list_cart');
+Route::get('/checkout', [CheckoutController::class, 'address'])->name('checkout');

@@ -21,10 +21,10 @@ class CartItemController extends Controller
             'product_id'=> $product->id
         ]);
 
-        return redirect()->back()->with('erro', 'Login ou senha inválidos');
+        return redirect()->back()->with('erro', 'erro');
     }
 
-    public function list()
+    public function list(Request $request)
     {
         $list= DB::table('cart_itens as ci')
                    ->select('p.name as name', 'ci.amount as amount', 'ci.price as price')
@@ -40,6 +40,7 @@ class CartItemController extends Controller
             $tt_itens+= $item->amount;
         }
 
+        $request->session()->put(['list'=> $list, 'tt_price'=>$tt_price, 'tt_amount'=> $tt_itens]);
 
         return view('cart_list', ['list'=> $list, 'tt_price'=>$tt_price, 'tt_amount'=> $tt_itens]);
     }
