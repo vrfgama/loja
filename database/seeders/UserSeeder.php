@@ -6,7 +6,7 @@ use App\Models\Address;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-
+use App\Models\CreditCard;
 
 class UserSeeder extends Seeder
 {
@@ -24,8 +24,6 @@ class UserSeeder extends Seeder
         ]);
         */
 
-        User::factory(10)->has(
-            Address::factory()->count(1)
-        )->create();
+        User::factory(10)->has(Address::factory()->count(1))->has(CreditCard::factory()->count(1) )->create();
     }
 }

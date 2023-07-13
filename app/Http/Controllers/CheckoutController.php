@@ -21,6 +21,13 @@ class CheckoutController extends Controller
 
         $address= Address::find($user2->id);
         
-        return view('checkout',['address'=>$address]);
+        return view('checkout-address',['address'=>$address]);
+    }
+
+
+    public function payment()
+    {
+        
+
     }
 }

@@ -42,6 +42,6 @@ class CartItemController extends Controller
 
         $request->session()->put(['list'=> $list, 'tt_price'=>$tt_price, 'tt_amount'=> $tt_itens]);
 
-        return view('cart_list', ['list'=> $list, 'tt_price'=>$tt_price, 'tt_amount'=> $tt_itens]);
+        return view('cart-list', ['list'=> $list, 'tt_price'=>$tt_price, 'tt_amount'=> $tt_itens]);
     }
 }

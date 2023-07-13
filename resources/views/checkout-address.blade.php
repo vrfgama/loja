@@ -21,5 +21,5 @@ Estado:
 <br>
 {{ $address->country }}
 
-
-<a href="{{ route('payment') }}">Confirmar endereço de entrega</a>
+<br><br>
+<a href="{{ route('checkout.payment') }}">Confirmar endereço de entrega</a>
